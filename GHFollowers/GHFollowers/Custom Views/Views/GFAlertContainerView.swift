@@ -1,5 +1,5 @@
 //
-//  GFSecondaryTitleLabel.swift
+//  GFAlertContainerView.swift
 //  GHFollowers
 //
 //  Created by Ian McDonald on 20/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GFSecondaryTitleLabel: UILabel {
+class GFAlertContainerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -18,16 +18,11 @@ class GFSecondaryTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(fontSize: CGFloat) {
-        self.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
-    }
-    
     private func configure() {
-        textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
-        lineBreakMode = .byTruncatingTail
+        backgroundColor = .systemBackground
+        layer.cornerRadius = 16
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

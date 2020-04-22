@@ -13,7 +13,6 @@ enum ItemInfoType {
 }
 
 class GFItemInfoView: UIView {
-    
     let symbolImageView = UIImageView()
     let titleLabel = GFTitleLabel(textAlignment: .left, fontSize: 14)
     let countLabel = GFTitleLabel(textAlignment: .center, fontSize: 14)
@@ -28,9 +27,7 @@ class GFItemInfoView: UIView {
     }
     
     private func configure() {
-        addSubview(symbolImageView)
-        addSubview(titleLabel)
-        addSubview(countLabel)
+        addSubviews(symbolImageView, titleLabel, countLabel)
         
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         symbolImageView.contentMode = .scaleAspectFill
@@ -58,20 +55,19 @@ class GFItemInfoView: UIView {
     func set(itemInfoType: ItemInfoType, withCount count: Int) {
         switch itemInfoType {
         case .repos:
-            symbolImageView.image = UIImage(systemName: SFSymbols.repos)
+            symbolImageView.image = SFSymbols.repos
             titleLabel.text = "Public Repos"
         case .gists:
-            symbolImageView.image = UIImage(systemName: SFSymbols.gists)
+            symbolImageView.image = SFSymbols.gists
             titleLabel.text = "Public Gists"
         case .followers:
-            symbolImageView.image = UIImage(systemName: SFSymbols.followers)
+            symbolImageView.image = SFSymbols.followers
             titleLabel.text = "Followers"
         case .following:
-            symbolImageView.image = UIImage(systemName: SFSymbols.following)
+            symbolImageView.image = SFSymbols.following
             titleLabel.text = "Following"
         }
         
         countLabel.text = String(count)
     }
-    
 }
